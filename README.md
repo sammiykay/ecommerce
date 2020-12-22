@@ -1,6 +1,6 @@
 # ecommerce
 
-# Reset Your password also works
+# Reset Your password is also works
 
 # How To Configure Reset Password
 In line 136 settings.py input your email and in line 137 in settings.py input your password.
