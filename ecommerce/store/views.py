@@ -105,6 +105,7 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             user = form.save()
+            Customer.objects.create(user=user)
             messages.success(request, 'Registration Successful')
             return redirect('/login')
     else:
