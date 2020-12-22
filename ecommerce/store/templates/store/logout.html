@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Logged Out | Ecommerce</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+{% load static %}
+<style type="text/css">
+	* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+* {
+			margin: 0px;
+			font-family: sans-serif;
+			padding: 0px;
+		}
+		body {
+			overflow-x: hidden;
+		}
+		.nav {
+			background-color: grey;
+			width: 100%;
+			align-items: center;
+			justify-content: space-around;
+			display: flex;
+			min-height: 10vh;
+		}	
+		nav {
+			letter-spacing: 7px;
+			font-weight: bold;
+			color: white;
+			font-size: 25px;
+
+		}
+		nav a {
+			text-decoration: none;
+			color: wheat;
+			transition: .3s;
+		}
+		nav a:hover {
+			color: white;
+			transition: .3s;
+		}
+		.link2 {
+			display: none;
+			transition: .3s;
+		}
+		.links ul {
+			display: flex;
+			justify-content: space-around;
+			width: 480px;
+		}
+		.links li {
+			list-style: none;
+		}
+		.links li a{
+			color: wheat;
+			font-size: 13px;
+			letter-spacing: 2px;
+			text-decoration: none;
+			transition: .3s ease-in;
+		}
+		.links li a:hover ,.link2 li a:hover {
+			color: white;
+			transition: .3s ease-in;
+		}
+		.burger {
+			height: 17px;
+			cursor: pointer;
+			width: 25px;
+			display: none;
+		}
+		.burg1 {
+			background-color: wheat;
+			width: 24px;
+			height: 2px;
+			transition: .3s;
+		} 
+		.burg2, .burg3 {
+			background-color: wheat;
+			margin-top: 5px;
+			width: 24px;
+			height: 2px;	
+			transition: .3s;
+		}
+		.burg2:hover, .burg3:hover, .burg1:hover {
+			background-color: white;
+		}
+		.text {
+			margin-top: 20px;
+		}
+		.text .container {
+		width: 90%;
+		margin: 0 auto;
+		}
+		.text h2 {
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+		.text p {
+		margin-bottom: 15px;
+		}
+
+		@media only screen and (max-width: 998px) {
+			.text {
+			padding-top: 30px;
+			}
+		}
+		@media only screen and (max-width: 909px){
+			.newsletter {
+			position: absolute;
+			top: 34%;
+			border-radius: 9px;
+			transition: all .3s ease;
+			left: 26%;
+			background-color: white;
+			width: 50%;
+			height: 40vh;
+			text-align: center;
+			}
+		}
+		@media only screen and (max-width: 768px){
+			.text {
+			padding-top: 30px;
+			}
+			.links ul {
+				display: none;
+			}
+			.burger {
+				display: block;
+			}
+			.link2 {
+				background-color: grey;
+				width: 40%;
+				position: absolute;
+				top: 9%;
+				left: 62%;
+				float: right;
+				justify-content: flex-end;
+				text-align: center;
+			}
+			 .link2.toggle {
+				display: block;
+				transition: .3s;
+			}
+			.link2 ul {
+			list-style: none;
+			padding-top: 44px;
+			}
+			.link2 li {
+				margin-bottom: 44px;
+			}
+			.link2 li a{
+				color: wheat;
+				font-size: 14px;
+				letter-spacing: 2px;
+				transition: .3s ease-in;
+				text-decoration: none;
+			}
+			.burg1.tog{
+				transform: rotate(-45deg) translate(-5px,6px);
+				transition: .3s;
+			}
+			.burg2.tog {
+				opacity: 0;
+				transition: .3s;
+			}
+			.burg3.tog {
+				transition: .3s;
+				transform: rotate(45deg) translate(-5px,-6px);
+			}
+			.nav2 {
+				justify-content: flex-end;
+				width: 100%;
+				}
+		} 
+#boxes {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+}
+#boxes .box {
+	margin-top: 20px;
+	width: 220px;
+	justify-content: center;
+	height: 250px;
+	border-radius: 12px;
+	padding-right: 12px;
+	margin-left: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#boxes .box img {
+	width: 232px;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px; 
+	height: 170px;
+	margin-top: 0px;	
+}
+#boxes .box h4{
+	margin-top: 10px;
+	margin-left: 15px;
+}
+#boxes .box .but {
+	margin-left: 8px;
+} 
+#boxes .box button {
+	float: left;
+	margin-left: 7px;
+	margin-top: 12px;
+	padding: 4px;
+}
+#boxes .box h6 {
+	float: right;
+	margin-top: 19px;
+}
+nav li {
+	float: left;
+}
+nav .cart {
+	color: white;
+	text-decoration: none;
+	margin-top: 62px;
+}
+</style>
+{% block content %}
+<body>
+	<div class="opa">
+		<div class="nav">
+			<div class="logo">
+				<nav>
+					<a href="{% url 'store' %}">Ecom</a>
+				</nav>
+			</div>
+			<div class="links">
+				<ul>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'store' %}">Home</a></li>
+					<li><a href="{% url 'contact-us' %}">Contact us</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="{% url 'logout' %}">Log out</a></li>
+					<li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>
+					{% else %}
+					<li><a href="{% url 'store' %}">Home</a></li>
+					<li><a href="{% url 'contact-us' %}">Contact us</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="{% url 'login' %}">Log in</a></li>
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>	
+					{% endif %}
+			</ul>
+				
+				
+			
+			</div>
+			<div class="burger" onclick="tog()">
+				<div class="burg1"></div>
+				<div class="burg2"></div>
+				<div class="burg3"></div>
+			</div>
+		</div>
+		<div class="nav2">
+			<div class="link2">
+				<ul>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'store' %}">Home</a></li>
+					<li><a href="">Contact us</a></li>
+					<li><a href="{% url 'contact-us' %}">Services</a></li>
+					<li><a href="{% url 'logout' %}">Log out</a></li>
+					<li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>
+					{% if user.is_staff %}
+					<li><a href="http://localhost:8000/admin">Admin</a></li>
+					{% else %}
+					{% endif %}
+					{% else %}
+					<li><a href="{% url 'store' %}">Home</a></li>
+					<li><a href="{% url 'contact-us' %}">Contact us</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="{% url 'login' %}">Log in</a></li>
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'cart' %}">[{{product.cartItems}}]Cart</a></li>
+					{% endif %}
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+    <div class="text">
+    	<div class="container">
+	    	<a href="{% url 'store' %}">Go to Home</a>
+	    	<p>
+	    		<strong><h2>Logged out</h2></strong>
+				<p>Thanks for spending some quality time with the Web site today.</p>
+	    		<a href="{% url 'login' %}">Login Again</a>
+	    	</p>
+	    </div>
+    </div>
+
+    <script type="text/javascript">
+				function tog(){
+				let x = document.querySelector('.link2');
+				let y = document.querySelector('.burg1');
+				let b = document.querySelector('.burg2');
+				let a = document.querySelector('.burg3');
+				x.classList.toggle('toggle');
+				y.classList.toggle('tog');
+				a.classList.toggle('tog');
+				b.classList.toggle('tog');
+				}
+			</script>
+    
+</body>
+{% endblock content %}
+
+
+
+</html>

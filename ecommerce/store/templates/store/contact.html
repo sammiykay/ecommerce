@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us | Ecommerce</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+{% load static %}
+<style type="text/css">
+	* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+* {
+			margin: 0px;
+			font-family: sans-serif;
+			padding: 0px;
+		}
+		body {
+			overflow-x: hidden;
+		}
+		.nav {
+			background-color: grey;
+			width: 100%;
+			align-items: center;
+			justify-content: space-around;
+			display: flex;
+			min-height: 10vh;
+		}	
+		nav {
+			letter-spacing: 7px;
+			font-weight: bold;
+			color: white;
+			font-size: 25px;
+
+		}
+		nav a {
+			text-decoration: none;
+			color: wheat;
+			transition: .3s;
+		}
+		nav a:hover {
+			color: white;
+			transition: .3s;
+		}
+		.link2 {
+			display: none;
+			transition: .3s;
+		}
+		.links ul {
+			display: flex;
+			justify-content: space-around;
+			width: 480px;
+		}
+		.links li {
+			list-style: none;
+		}
+		.links li a{
+			color: wheat;
+			font-size: 13px;
+			letter-spacing: 2px;
+			text-decoration: none;
+			transition: .3s ease-in;
+		}
+		.links li a:hover ,.link2 li a:hover {
+			color: white;
+			transition: .3s ease-in;
+		}
+		.burger {
+			height: 17px;
+			cursor: pointer;
+			width: 25px;
+			display: none;
+		}
+		.burg1 {
+			background-color: wheat;
+			width: 24px;
+			height: 2px;
+			transition: .3s;
+		} 
+		.burg2, .burg3 {
+			background-color: wheat;
+			margin-top: 5px;
+			width: 24px;
+			height: 2px;	
+			transition: .3s;
+		}
+		.burg2:hover, .burg3:hover, .burg1:hover {
+			background-color: white;
+		}
+		footer {
+			background-color: grey;
+			width: 100%;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			min-height: 10vh;
+			margin-top: 30px;
+			position: relative;
+			bottom: 0;
+		}
+		.footer ul li {
+			float: right;
+			padding: 0 26px;
+			color: wheat;
+			list-style: none;
+		}
+		#main-col {
+			width: 50%;
+			margin-top: 60px;
+			line-height: 1.5rem;
+		}
+		#sidebar {
+			width: 400px;
+			background-color: grey;
+			margin-top: 60px;
+
+		}
+		#sidebar h3 {
+			height: 40px;
+			text-align: center;
+			color: wheat;
+			padding-top: 25px;
+			padding-bottom: 3px;
+
+		}
+		label {
+			font-size: 19px;
+			color: wheat;
+		}
+		.container {
+			width: 84%;
+			margin: 0px auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.but button a {
+			color: black;
+			text-decoration: none;
+		}
+
+		#main-col h1 {
+			font-size: 25px;
+			letter-spacing: 0.1rem;
+			margin-bottom: 20px;
+		}
+		#services h3 {
+			letter-spacing: 0.08rem;
+			font-size: 18px;
+			margin: 20px 0px 10px 0px;
+		}
+		#sidebar {
+			width: 400px;
+			background-color: grey;
+			margin-top: 60px;
+
+		}
+		input, textarea {
+			width: 300px;
+			padding: 9px 10px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		textarea {
+			height: 15vh;
+			min-height: 15vh;
+			max-height: 19vh;
+			min-width: 300px;
+			max-width: 300px;
+		}
+		form {
+			padding: 0px 33px;
+		}
+		.but {
+			width: 90px;
+			color: grey;
+			background: wheat;
+			border: none;
+			height: 40px;	
+			margin-bottom: 20px;
+			border-radius: 5px;
+			font-size: 15px;
+			font-weight: bold;
+
+		}
+		@media only screen and (max-width: 1023px){
+			#main-col {
+				width: 40%;	
+			}
+			
+			input, textarea {
+			width: 300px;
+			padding: 9px 10px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			}
+			textarea {
+			height: 15vh;
+			min-height: 15vh;
+			max-height: 19vh;
+			min-width: 300px;
+			max-width: 300px;
+		}
+
+		} 
+		
+		@media only screen and (max-width: 998px) {
+			.text {
+			padding-top: 30px;
+			}
+		}
+		@media only screen and (max-width: 909px){
+			.newsletter {
+			position: absolute;
+			top: 34%;
+			border-radius: 9px;
+			transition: all .3s ease;
+			left: 26%;
+			background-color: white;
+			width: 50%;
+			height: 40vh;
+			text-align: center;
+			}
+		}
+		@media only screen and (max-width: 890px){
+			.container {
+				display: block;
+			}
+			#main-col {
+				width: 100%;
+			}
+			#sidebar {
+				width: 100%;
+			}
+			input, textarea {
+				width: 95%;
+			}
+			textarea{
+				min-width: 95%;
+				max-width: 95%;
+			}
+		}
+		@media only screen and (max-width: 768px){
+			.text {
+			padding-top: 30px;
+			}
+			.links ul {
+				display: none;
+			}
+			.burger {
+				display: block;
+			}
+			.link2 {
+				background-color: grey;
+				width: 40%;
+				position: absolute;
+				top: 9%;
+				left: 62%;
+				float: right;
+				justify-content: flex-end;
+				text-align: center;
+			}
+			 .link2.toggle {
+				display: block;
+				transition: .3s;
+			}
+			.link2 ul {
+			list-style: none;
+			padding-top: 24px;
+			}
+			.link2 li {
+				margin-bottom: 44px;
+			}
+			.link2 li a{
+				color: wheat;
+				font-size: 14px;
+				letter-spacing: 2px;
+				transition: .3s ease-in;
+				text-decoration: none;
+			}
+			.burg1.tog{
+				transform: rotate(-45deg) translate(-5px,6px);
+				transition: .3s;
+			}
+			.burg2.tog {
+				opacity: 0;
+				transition: .3s;
+			}
+			.burg3.tog {
+				transition: .3s;
+				transform: rotate(45deg) translate(-5px,-6px);
+			}
+			.nav2 {
+				justify-content: flex-end;
+				width: 100%;
+				}
+		} 
+
+.form p {
+	color: greenyellow;
+	text-align: center;
+}
+
+</style>
+{% block content %}
+<body>
+	<div class="opa">
+		<div class="nav">
+			<div class="logo">
+				<nav>
+					<a href="{% url 'store' %}">Ecom</a>
+				</nav>
+			</div>
+			<div class="links">
+				<ul>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'store' %}">Home</a></li>
+					<li><a href="{% url 'contact-us' %}">Contact us</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="{% url 'logout' %}">Log out</a></li>
+					<li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>
+					{% else %}
+					<li><a href="{% url 'store' %}">Home</a></li>
+					<li><a href="{% url 'contact-us' %}">Contact us</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="{% url 'login' %}">Log in</a></li>
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>	
+					{% endif %}
+			</ul>
+				
+				
+			
+			</div>
+			<div class="burger" onclick="tog()">
+				<div class="burg1"></div>
+				<div class="burg2"></div>
+				<div class="burg3"></div>
+			</div>
+		</div>
+		<div class="nav2">
+			<div class="link2">
+				<ul>
+					{% if user.is_authenticated %}
+					<li><a href="{% url 'store' %}">Home</a></li>
+					<li><a href="">Contact us</a></li>
+					<li><a href="{% url 'contact-us' %}">Services</a></li>
+					<li><a href="{% url 'logout' %}">Log out</a></li>
+					<li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>
+					{% if user.is_staff %}
+					<li><a href="http://localhost:8000/admin">Admin</a></li>
+					{% else %}
+					{% endif %}
+					{% else %}
+					<li><a href="{% url 'store' %}">Home</a></li>
+					<li><a href="{% url 'contact-us' %}">Contact us</a></li>
+					<li><a href="">Services</a></li>
+					<li><a href="{% url 'login' %}">Log in</a></li>
+					<li><a href="{% url 'register' %}">Register</a></li>
+					<li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>
+					{% endif %}
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+			<section id="main">
+		<div class="container">
+			<article id="main-col">
+				<h1>Services</h1>
+				<div id="services">
+				
+						<h3>Website design</h3>
+						<p>Life is all about love. Because God is love, the most important lesson he wants you to learn on earth is how to love. It is in loving that we are most like him, so love is the</p>
+					
+				
+						<h3>Website Maintanance</h3>
+						<p>Life is all about love. Because God is love, the most important lesson he wants you to learn on earth is how to love. It is in loving that we are most like him, so love is the</p>
+					
+				
+						<h3>Website Hosting</h3>
+						<p>Life is all about love. Because God is love, the most important lesson he wants you to learn on earth is how to love. It is in loving that we are most like him, so love is the</p>
+					
+				
+			</article>
+			<aside id="sidebar">
+				
+				<h3>Contact Us</h3>
+				<form method="POST">
+					{% csrf_token %}
+					{% if messages %}
+					{% for message in messages %}
+					<div class="form">	
+					<p>{{message}}</p>
+					</div>
+						{% endfor %}
+						{% endif %}
+						{{form.as_p}}
+					<button class="but" type="Submit">Submit</button>
+					</div>
+				</form>
+			</aside>
+		</div>
+	</section>
+	<footer>
+						<div class="footer">
+							<ul>
+								<li><strong>FB</strong></li>
+								<li><strong>TW</strong></li>
+								<li><strong>IG</strong></li>
+							</ul>
+						</div>
+				</footer>
+    	<script type="text/javascript">
+				function tog(){
+				let x = document.querySelector('.link2');
+				let y = document.querySelector('.burg1');
+				let b = document.querySelector('.burg2');
+				let a = document.querySelector('.burg3');
+				x.classList.toggle('toggle');
+				y.classList.toggle('tog');
+				a.classList.toggle('tog');
+				b.classList.toggle('tog');
+				}
+			</script>
+            
+       {% endblock %}     
+</body>
+</html>
+					

@@ -1,0 +1,600 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check Out | Ecommerce</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+{% load static %}
+<style type="text/css">
+	* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+* {
+			margin: 0px;
+			font-family: sans-serif;
+			padding: 0px;
+		}
+		body {
+			overflow-x: hidden;
+		}
+		.container {
+			width: 80%;
+			margin: 10px auto;
+			display: flex;
+			justify-content: center;
+		}
+		.nav {
+			background-color: grey;
+			width: 100%;
+			align-items: center;
+			justify-content: space-around;
+			display: flex;
+			min-height: 8vh;
+		}	
+		nav {
+			letter-spacing: 7px;
+			font-weight: bold;
+			color: white;
+			font-size: 25px;
+
+		}
+		nav a {
+			text-decoration: none;
+			color: wheat;
+			transition: .3s;
+		}
+		nav a:hover {
+			color: white;
+			transition: .3s;
+		}
+		.link2 {
+			display: none;
+			transition: .3s;
+		}
+		.links ul {
+			display: flex;
+			justify-content: space-around;
+			width: 480px;
+		}
+		.links li {
+			list-style: none;
+		}
+		.links li a{
+			color: wheat;
+			font-size: 13px;
+			letter-spacing: 2px;
+			text-decoration: none;
+			transition: .3s ease-in;
+		}
+		.links li a:hover ,.link2 li a:hover {
+			color: white;
+			transition: .3s ease-in;
+		}
+		.burger {
+			height: 17px;
+			cursor: pointer;
+			width: 25px;
+			display: none;
+		}
+		.burg1 {
+			background-color: wheat;
+			width: 24px;
+			height: 2px;
+			transition: .3s;
+		} 
+		.burg2, .burg3 {
+			background-color: wheat;
+			margin-top: 5px;
+			width: 24px;
+			height: 2px;	
+			transition: .3s;
+		}
+		.burg2:hover, .burg3:hover, .burg1:hover {
+			background-color: white;
+		}
+		footer {
+			background-color: grey;
+			width: 100%;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			min-height: 10vh;
+			margin-top: 30px;
+			position: relative;
+			bottom: 0;
+		}
+		.footer ul li {
+			float: right;
+			padding: 0 26px;
+			color: wheat;
+			list-style: none;
+		}
+		#main-col {
+			width: 50%;
+			margin-top: 60px;
+			line-height: 1.5rem;
+		}
+		.form {
+			width: 500px;
+            border-radius: 6px;
+            height: 350px;
+            padding: 3px 18px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			
+		}
+		.form h3 {  
+			text-align: center;
+			color: grey;
+			padding-top: 20px;
+            margin-bottom: 10px;;
+
+		}
+		label {
+			font-size: 19px;
+			color: wheat;
+		}
+		
+		.but button a {
+			color: black;
+			text-decoration: none;
+		}
+
+		
+		input {
+			width: 180px;
+			padding: 9px 10px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			border-radius: 3px;
+			display: inline-block;
+			border: 1px solid #ccc;
+		}
+		form {
+			padding: 0px 33px;
+		}
+		.but {
+			width: 410px;
+			color: wheat;
+			background: grey;
+			border: none;
+			height: 40px;	
+			margin-top: 10px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			font-size: 15px;
+			font-weight: bold;
+
+		}
+		footer {
+			background-color: grey;
+			width: 100%;
+			align-items: center;
+			justify-content: center;
+			display: flex;
+			min-height: 10vh;
+			margin-top: 30px;
+		}
+		.footer ul li {
+			float: right;
+			padding: 0 26px;
+			color: wheat;
+			list-style: none;
+		}
+		#shipping-info p{
+			margin-top: 10px;
+			padding: 12px 0px;
+			margin-bottom: 10px;
+			border-top: 0.5px solid #cccc;
+			border-bottom: 0.5px solid #cccc;
+			width: 410px;
+		}
+
+			.summary {
+			width: 500px;
+		    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		    border-radius: 6px;
+		    margin-left: 20px;
+		    height: 520px;
+			}
+		@media only screen and (max-width: 1083px){
+			.summary {
+				width: 390px;
+			}
+			.form {
+			width: 350px;
+            border-radius: 6px;
+            height: 350px;
+            padding: 3px 18px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			}
+			#shipping-info p {
+				width: 270px;
+			}
+			.but {
+				width: 270px;
+			}
+				input {
+					width: 110px;
+				}
+			}
+		@media only screen and (max-width: 1023px){
+			#main-col {
+				width: 40%;	
+			}
+			
+			
+
+		} 
+			
+	
+		@media only screen and (max-width: 890px){
+			
+			#main-col {
+				width: 100%;
+			}
+
+			
+		}
+		@media only screen and (max-width: 909px){
+			.container {
+				display: block;
+			}
+			.form{
+				width: 100%;
+				height: 500px;
+			}
+			.input {
+				display: block;
+				width: 100%;
+				margin-left: 0px;
+
+			}
+			input {
+				width: 100%;
+				margin-left: 0px;
+			}
+			.but {
+				width: 104.5%;
+				margin-bottom: 2px;
+			}
+			.summary {
+				margin-left: 0px;
+				width: 104.5%;
+				margin-top: 20px;
+			}
+		}
+		@media only screen and (max-width: 768px){
+			.text {
+			padding-top: 30px;
+			}
+			.links ul {
+				display: none;
+			}
+			.burger {
+				display: block;
+			}
+			.link2 {
+				background-color: grey;
+				width: 40%;
+				position: absolute;
+				top: 7%;
+				left: 62%;
+				float: right;
+				justify-content: flex-end;
+				text-align: center;
+			}
+			 .link2.toggle {
+				display: block;
+				transition: .3s;
+			}
+			.link2 ul {
+			list-style: none;
+			padding-top: 24px;
+			}
+			.link2 li {
+				margin-bottom: 44px;
+			}
+			.link2 li a{
+				color: wheat;
+				font-size: 14px;
+				letter-spacing: 2px;
+				transition: .3s ease-in;
+				text-decoration: none;
+			}
+			.burg1.tog{
+				transform: rotate(-45deg) translate(-5px,6px);
+				transition: .3s;
+			}
+			.burg2.tog {
+				opacity: 0;
+				transition: .3s;
+			}
+			.burg3.tog {
+				transition: .3s;
+				transform: rotate(45deg) translate(-5px,-6px);
+			}
+			.nav2 {
+				justify-content: flex-end;
+				width: 100%;
+				}
+		} 
+        
+
+
+.back-to-cart {
+	border-bottom: 1px solid #ccc;
+	height: 60px;
+}
+.back-to-cart button {
+	margin-top: 13px;
+	margin-left: 19px;
+	padding: 11px 13px;
+	border:none;background-color: grey;
+	outline: none;
+	border-radius: 2.9px;
+	color: wheat;
+}
+.back-to-cart button a{
+    color: wheat;
+    text-decoration: none;
+}
+.order-summary {
+	height: 40px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 12px;
+}
+.order-summary h3 {
+	margin-top: 19px;
+	margin-left: 20px;
+}
+
+table {
+    width: 100%;
+    padding: 10px;
+}
+.summary table img {
+    width: 70px;
+
+}
+.items {
+    padding: 10px;
+    line-height: 1.5rem;
+    font-weight: bold;
+}
+.table {
+    height: 325px;
+    overflow-y: scroll;
+}
+.input {
+	width: 100%;
+	display: inline-block;
+}
+.but.hidden {
+	display: none;
+}
+.paypal {
+	display: flex;
+	width: 100;
+	align-items: center;
+	margin-top: 20px;
+}
+.paypal button {
+	padding: 5px 10px;
+	margin-left: 8px;
+}
+
+.paypal.hidden {
+	display: none;
+	
+}
+</style>
+<div class="opa">
+    <div class="nav">
+        <div class="logo">
+            <nav>
+                <a href="{% url 'store' %}">Ecom</a>
+            </nav>
+        </div>
+        <div class="links">
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'store' %}">Home</a></li>
+                <li><a href="{% url 'contact-us' %}">Contact us</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+                <li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>
+                {% else %}
+                <li><a href="{% url 'store' %}">Home</a></li>
+                <li><a href="{% url 'contact-us' %}">Contact us</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="{% url 'login' %}">Log in</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>	
+                {% endif %}
+        </ul>
+            
+            
+        
+        </div>
+        <div class="burger" onclick="tog()">
+            <div class="burg1"></div>
+            <div class="burg2"></div>
+            <div class="burg3"></div>
+        </div>
+    </div>
+    <div class="nav2">
+        <div class="link2">
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'store' %}">Home</a></li>
+                <li><a href="">Contact us</a></li>
+                <li><a href="{% url 'contact-us' %}">Services</a></li>
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+                <li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>
+                {% if user.is_staff %}
+                <li><a href="http://localhost:8000/admin">Admin</a></li>
+                {% else %}
+                {% endif %}
+                {% else %}
+                <li><a href="{% url 'store' %}">Home</a></li>
+                <li><a href="{% url 'contact-us' %}">Contact us</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="{% url 'login' %}">Log in</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'cart' %}">[{{cartItems}}]Cart</a></li>
+                {% endif %}
+            </ul>
+            
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="form">
+                    
+        <h3>Check Out</h3>
+        <form id="form">
+			<div class="input">
+				<div class="info" id="user-info">
+					<input type="text" name="name" placeholder="Name" maxlength="40" required id="id_name">
+					<input type="text" name="email" placeholder="Email" maxlength="254" required id="id_email">
+				</div>
+				<div id="shipping-info">
+					<p>Shipping Address:</p>
+					<input type="text" name="address" placeholder="Address" maxlength="100" required id="id_address">
+					<input type="text" name="country" placeholder="Country" maxlength="30" required id="id_country">
+					<input type="text" name="state" placeholder="State" maxlength="30" required id="id_state">
+					<input type="text" name="zip_code" placeholder="Zip Code" maxlength="40" required id="id_zipcode">
+				</div>
+			</div>
+            <button class="but" id="form-button" type="Submit">Continue</button>
+        <div class="paypal hidden" id="payment-info">
+        	<p>Make Payment  : </p><button id="make-payment">Payment-Method</button>
+        </div>
+        </form>
+    </div>
+    <div class="summary">
+    	<div class="back-to-cart">
+    		<button><a href='{% url "cart" %}'> &#x2190; Back to Cart</a></button>
+    	</div>
+    	<div class="order-summary">
+    		<h3>Order Summary</h3>
+        </div>
+        <div class="table">
+            <table>
+                {% for item in items %}
+                <tr>
+                    <td><img src="{{item.product.imageURL}}"></td>
+                    <td>{{item.product.name}}</td>
+                    <td>${{item.product.price}}</td>
+                    <td>{{item.quantity}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    	<div class="items">
+    		<p>Items: {{order.get_cart_items}}</p>
+    		<p>Total: ${{order.get_cart_total}}</p>
+        </div>
+        
+    </div>
+        
+</div>
+<footer>
+        <div class="footer">
+            <ul>
+                <li><strong>FB</strong></li>
+                <li><strong>TW</strong></li>
+                <li><strong>IG</strong></li>
+            </ul>
+        </div>
+</footer>
+<script src="{% static 'js/store.js' %}"></script>
+<script type="text/javascript">
+	var user = '{{request.user}}'
+
+				function getToken(name){
+					var cookieValue = null;
+					if (document.cookie && document.cookie !== ''){
+						var cookies = document.cookie.split(';');
+						for (var i = 0; i < cookies.length; i++){
+							var cookie = cookies[i].trim();
+							if (cookie.substring(0, name.length + 1) === (name+ '=')){
+								cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+								break
+							}
+						}
+					}
+					return cookieValue
+				}
+				var csrftoken = getToken('csrftoken');
+var shipping = '{{order.shipping}}'
+var total = '{{order.get_cart_total}}'
+    if (shipping == 'False'){
+        document.getElementById('shipping-info').innerHTML= ''
+    }
+    if (user != 'Anonymoususer'){
+        document.getElementById('user-info').innerHTML= ''
+    }
+    
+    var form = document.getElementById('form')
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+        console.log('Form Submitted Successfully.....')
+        document.getElementById('form-button').classList.add('hidden');
+        document.getElementById('payment-info').classList.remove('hidden');
+    })
+
+    document.getElementById('make-payment').addEventListener('click', function(e){
+    	submitFormData()
+    })
+
+    function submitFormData(){
+    	console.log('Payment button Clicked')
+
+    	var userFormData = {
+    		'name': null,
+    		'email': null,
+    		'total': total,
+    	}
+    	var shippingInfo = {
+    		'address': null,
+    		'country': null,
+    		'state': null,
+    		'zipcode': null,
+    	}
+    	if (shipping == 'True'){
+    		shippingInfo.address = document.querySelector('#id_address').value
+    		shippingInfo.country = document.querySelector('#id_country').value
+    		shippingInfo.state = document.querySelector('#id_state').value
+    		shippingInfo.zipcode = document.querySelector('#id_zipcode').value
+    	}
+    	if (user == 'Anonymoususer'){
+    		userFormData.name = document.querySelector('#id_name').value
+    		userFormData.email = document.querySelector('#id_email').value
+    	}
+    	var url = '/process_order/'
+    	console.log('Url:', url)
+    
+	    fetch(url, {
+	        method:'POST',
+	        headers: {
+	            'Content-Type':'application/json',
+	            'X-CSRFToken': csrftoken,
+	        },
+	        body:JSON.stringify({'form': userFormData, 'shipping': shippingInfo})
+	    })
+	    .then((response) =>{
+	        return response.json()
+	    })
+	    .then((data) =>{
+	        console.log('Success', data);
+	        alert('Payment Successful');
+	        window.location.href = '{% url "store" %}'
+	    });
+    }
+</script>
+</html>
